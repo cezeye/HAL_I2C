@@ -23,3 +23,4 @@ V0.1 对从机模式下的HAL库I2C 函数HAL_I2C_Slave_Sequential_Receive_IT的
 这个代码是基于第4种类型的I2C函数。应用是 双机通信中的带有Repeat Start操作的I2C通信.
 
 1.HAL_I2C_Slave_Sequential_Receive_IT()的程序流图
+![](https://github.com/stonechenSJ/HAL_I2C/blob/master/HAL_I2C%20structure.png)
