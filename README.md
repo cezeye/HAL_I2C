@@ -23,9 +23,9 @@ V0.1 对从机模式下的HAL库I2C 函数HAL_I2C_Slave_Sequential_Receive_IT的
   1.HAL_I2C_Slave_Sequential_XX_IT()的程序流图  
   ![](https://github.com/stonechenSJ/HAL_I2C/blob/master/HAL_I2C%20structure.png)
   
-  2.在I2C通信中，提供的中断源有接收寄存器，发送寄存器，stop位，NACK位，ADDR位匹配.
- 在I2C的ISR中,可以看到有4个去处,分别对应器件地址匹配,发送完成中断,接收完成中断,STOP置位中断.
- 可以看到,其对应的从机接收程序中的中断位置
- ![](https://github.com/stonechenSJ/HAL_I2C/blob/master/SlaveRx.PNG)
- sequential类型的通信的一个特征是,每当完成一个阶段的通信后,会关闭相关的中断,然后提供Callback函数做处理,如果主机没有发出停止位,那么从机需要在Callback函数中利用HAL_I2C_Slave_Sequential_XX_IT()函数再次打开中断，知道主机发出停止位。
- 那么也就是说，接收端可以每次接收1 Byte数据然后做处理再在slaveRxCpltCallback()中打开中断循环接收1Byte的数据，直到从机指定的长度或者主机发出停止位。
+  2.在I2C通信中，提供的中断源有接收寄存器，发送寄存器，stop位，NACK位，ADDR位匹配.  
+  在I2C的ISR中,可以看到有4个去处,分别对应器件地址匹配,发送完成中断,接收完成中断,STOP置位中断.  
+  可以看到,其对应的从机接收程序中的中断位置  
+  ![](https://github.com/stonechenSJ/HAL_I2C/blob/master/SlaveRx.PNG)  
+  sequential类型的通信的一个特征是,每当完成一个阶段的通信后,会关闭相关的中断,然后提供Callback函数做处理,如果主机没有发出停止位,那么从机需要在Callback函数中利用HAL_I2C_Slave_Sequential_XX_IT()函数再次打开中断，知道主机发出停止位。  
+  那么也就是说，接收端可以每次接收1 Byte数据然后做处理再在slaveRxCpltCallback()中打开中断循环接收1Byte的数据，直到从机指定的长度或者主机发出停止位。
