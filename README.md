@@ -1,0 +1,2 @@
+# HAL_I2C
+V0.1 对从机模式下的HAL库I2C 函数HAL_I2C_Slave_Sequential_Receive_IT的讨论
