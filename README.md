@@ -20,9 +20,10 @@ V0.1 对从机模式下的HAL库I2C 函数HAL_I2C_Slave_Sequential_Receive_IT的
     而第四种函数则是基于帧过程。那么只要主机没有释放总线, 接收端在接收信息时就可以根据情况转变数据传输方向.
   
   
-这个代码是基于第4种类型的I2C函数。应用是 双机通信中的带有Repeat Start操作的I2C通信.
+这个代码是基于第4种类型的I2C函数。应用是 双机通信中作为从机的带有Repeat Start操作的I2C通信.
 
 1.HAL_I2C_Slave_Sequential_XX_IT()的程序流图
 ![](https://github.com/stonechenSJ/HAL_I2C/blob/master/HAL_I2C%20structure.png)
 
-2.
+2.在I2C通信中，提供的中断源有接收寄存器，发送寄存器，stop位，NACK位，ADDR位匹配.
+ 在I2C的ISR中,可以看到有4个去处,分别对应器件地址匹配,发送完成中断,接收完成中断,STOP置位中断.
